@@ -1,9 +1,9 @@
 <template>
   <main>
     <div class="container-sm">
-      <div v-if="arraySong.length > 0" class="row justify-content-between">
+      <div v-if="arraySong.length > 0" class="row gy-4 justify-content-between">
         <SongCard
-          class="col-sm-2"
+          class="song_card"
           v-for="(song, index) in arraySong"
           :key="index"
           :song="song"
@@ -32,7 +32,6 @@ export default {
       .get("https://flynn.boolean.careers/exercises/api/array/music")
       .then((response) => {
         this.arraySong = response.data.response;
-        // console.log(this.arraySong);
       });
   },
 };
@@ -46,5 +45,9 @@ main {
   height: calc(100vh - 46px);
   display: flex;
   align-items: center;
+
+  .song_card {
+    width: 18%;
+  }
 }
 </style>
