@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <main>s</main>
 </template>
 
 <script>
@@ -9,4 +9,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/style/variables";
+
+main {
+  background-color: $color-blue;
+  height: calc(100vh - 46px);
+}
 </style>
