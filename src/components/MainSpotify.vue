@@ -9,12 +9,16 @@
           :song="song"
         />
       </div>
+      <div v-else class="row justify-content-center">
+        <LoaderSong />
+      </div>
     </div>
   </main>
 </template>
 
 <script>
 import SongCard from "@/components/SongCard.vue";
+import LoaderSong from "@/components/LoaderSong.vue";
 import axios from "axios";
 
 export default {
@@ -26,6 +30,7 @@ export default {
   },
   components: {
     SongCard,
+    LoaderSong,
   },
   mounted() {
     axios
