@@ -9,8 +9,6 @@
 import HeaderSpotify from "./components/HeaderSpotify.vue";
 import MainSpotify from "./components/MainSpotify.vue";
 
-// import axios from 'axios';
-
 export default {
   name: "App",
   components: {
@@ -22,6 +20,8 @@ export default {
 
 <style lang="scss">
 @import "@/assets/style/imports";
+@import "@/assets/style/resets";
+
 #app {
   font-family: "Montserrat", sans-serif;
 }
