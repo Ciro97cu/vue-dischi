@@ -34,4 +34,28 @@ export default {
     color: $color-grey;
   }
 }
+
+@media screen and (max-width: 1200px) {
+  h4 {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  h4 {
+    font-size: 14px;
+  }
+  p {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  h4 {
+    font-size: 10px;
+  }
+  p {
+    font-size: 8px;
+  }
+}
 </style>
