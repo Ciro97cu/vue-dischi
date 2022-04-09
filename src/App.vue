@@ -21,6 +21,12 @@ export default {
 <style lang="scss">
 @import "@/assets/style/imports";
 @import "@/assets/style/resets";
+@import "@/assets/style/variables";
+
+body {
+  height: 100vh;
+  background-color: $color-blue;
+}
 
 #app {
   font-family: "Montserrat", sans-serif;

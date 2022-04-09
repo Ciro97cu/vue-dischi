@@ -46,11 +46,9 @@ export default {
 @import "@/assets/style/variables";
 
 main {
-  background-color: $color-blue;
-  height: calc(100vh - 46px);
-  display: flex;
-  align-items: center;
-
+  .container-sm {
+    margin-top: 100px;
+  }
   .song_card {
     width: 18%;
   }
