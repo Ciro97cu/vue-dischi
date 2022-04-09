@@ -43,8 +43,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/style/variables";
-
 main {
   .container-sm {
     margin-top: 100px;
