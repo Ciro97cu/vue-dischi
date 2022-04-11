@@ -78,14 +78,5 @@ main {
   .song_card {
     width: 18%;
   }
-
-  select {
-    background-color: #2e3a46;
-    border: 1px solid white;
-    border-radius: 5px;
-    padding: 5px;
-    color: white;
-    cursor: pointer;
-  }
 }
 </style>
