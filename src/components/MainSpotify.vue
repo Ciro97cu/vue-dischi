@@ -1,14 +1,35 @@
 <template>
   <main>
     <div class="container-sm">
-      <div v-if="arraySong.length > 0" class="row gy-4 justify-content-between">
+      <div class="row justify-content-center">
+        <div class="col-auto">
+          <select
+            name="genre"
+            id="genre"
+            v-model="selectedGenre"
+            @change="displayGenre()"
+          >
+            <option value="All">All</option>
+            <option value="Rock">Rock</option>
+            <option value="Pop">Pop</option>
+            <option value="Jazz">Jazz</option>
+            <option value="Metal">Metal</option>
+          </select>
+        </div>
+      </div>
+
+      <div
+        v-if="arraySong.length > 0"
+        class="row gy-4 justify-content-around pt-5"
+      >
         <SongCard
           class="song_card"
-          v-for="(song, index) in arraySong"
+          v-for="(song, index) in displayGenre()"
           :key="index"
           :song="song"
         />
       </div>
+
       <div v-else class="row justify-content-center">
         <LoaderSong />
       </div>
@@ -26,6 +47,7 @@ export default {
   data() {
     return {
       arraySong: [],
+      selectedGenre: "All",
     };
   },
   components: {
@@ -39,16 +61,35 @@ export default {
         this.arraySong = response.data.response;
       });
   },
+  methods: {
+    displayGenre() {
+      if (this.selectedGenre === "All") {
+        return this.arraySong;
+      }
+      return this.arraySong.filter((element) => {
+        return element.genre.includes(this.selectedGenre);
+      });
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 main {
   .container-sm {
-    margin-top: 100px;
+    margin-top: 50px;
   }
   .song_card {
     width: 18%;
+  }
+
+  select {
+    background-color: #2e3a46;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 5px;
+    color: white;
+    cursor: pointer;
   }
 }
 </style>
