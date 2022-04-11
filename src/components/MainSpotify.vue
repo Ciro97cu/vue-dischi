@@ -3,12 +3,7 @@
     <div class="container-sm">
       <div class="row justify-content-center">
         <div class="col-auto">
-          <select
-            name="genre"
-            id="genre"
-            v-model="selectedGenre"
-            @change="displayGenre()"
-          >
+          <select name="genre" id="genre" @change="displayGenre($event)">
             <option value="All">All</option>
             <option value="Rock">Rock</option>
             <option value="Pop">Pop</option>
@@ -24,7 +19,7 @@
       >
         <SongCard
           class="song_card"
-          v-for="(song, index) in displayGenre()"
+          v-for="(song, index) in changeSelection"
           :key="index"
           :song="song"
         />
@@ -62,7 +57,12 @@ export default {
       });
   },
   methods: {
-    displayGenre() {
+    displayGenre: function (event) {
+      this.selectedGenre = event.target.value;
+    },
+  },
+  computed: {
+    changeSelection: function () {
       if (this.selectedGenre === "All") {
         return this.arraySong;
       }
