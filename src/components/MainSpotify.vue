@@ -53,12 +53,12 @@ export default {
       });
   },
   methods: {
-    searchbygenre(searchNameGenre) {
+    searchbygenre: function (searchNameGenre) {
       this.selectedGenre = searchNameGenre;
     },
   },
   computed: {
-    displaybygenre() {
+    displaybygenre: function () {
       if (this.selectedGenre === "All") {
         return this.arraySong;
       }
