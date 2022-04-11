@@ -3,13 +3,7 @@
     <div class="container-sm">
       <div class="row justify-content-center">
         <div class="col-auto">
-          <select name="genre" id="genre" @change="displayGenre($event)">
-            <option value="All">All</option>
-            <option value="Rock">Rock</option>
-            <option value="Pop">Pop</option>
-            <option value="Jazz">Jazz</option>
-            <option value="Metal">Metal</option>
-          </select>
+          <SearchGenre @search="searchbygenre" />
         </div>
       </div>
 
@@ -19,7 +13,7 @@
       >
         <SongCard
           class="song_card"
-          v-for="(song, index) in changeSelection"
+          v-for="(song, index) in displaybygenre"
           :key="index"
           :song="song"
         />
@@ -35,6 +29,7 @@
 <script>
 import SongCard from "@/components/SongCard.vue";
 import LoaderSong from "@/components/LoaderSong.vue";
+import SearchGenre from "@/components/SearchGenre.vue";
 import axios from "axios";
 
 export default {
@@ -42,12 +37,13 @@ export default {
   data() {
     return {
       arraySong: [],
-      selectedGenre: "All",
+      selectedGenre: "",
     };
   },
   components: {
     SongCard,
     LoaderSong,
+    SearchGenre,
   },
   mounted() {
     axios
@@ -57,12 +53,12 @@ export default {
       });
   },
   methods: {
-    displayGenre: function (event) {
-      this.selectedGenre = event.target.value;
+    searchbygenre(searchNameGenre) {
+      this.selectedGenre = searchNameGenre;
     },
   },
   computed: {
-    changeSelection: function () {
+    displaybygenre() {
       if (this.selectedGenre === "All") {
         return this.arraySong;
       }
