@@ -5,10 +5,9 @@
     @change="$emit('search', displayGenre($event))"
   >
     <option value="All">All</option>
-    <option value="Rock">Rock</option>
-    <option value="Pop">Pop</option>
-    <option value="Jazz">Jazz</option>
-    <option value="Metal">Metal</option>
+    <option v-for="(item, index) in genere" :key="index" :value="item">
+      {{ item }}
+    </option>
   </select>
 </template>
 
@@ -19,6 +18,9 @@ export default {
     displayGenre: function (event) {
       return event.target.value;
     },
+  },
+  props: {
+    genere: Array,
   },
 };
 </script>

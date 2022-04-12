@@ -3,7 +3,7 @@
     <div class="container-sm">
       <div class="row justify-content-center">
         <div class="col-auto">
-          <SearchGenre @search="searchbygenre" />
+          <SearchGenre @search="searchbygenre" :genere="arrayGenre" />
         </div>
       </div>
 
@@ -37,6 +37,7 @@ export default {
   data() {
     return {
       arraySong: [],
+      arrayGenre: [],
       selectedGenre: "",
     };
   },
@@ -50,6 +51,11 @@ export default {
       .get("https://flynn.boolean.careers/exercises/api/array/music")
       .then((response) => {
         this.arraySong = response.data.response;
+        this.arraySong.filter((item) => {
+          if (!this.arrayGenre.includes(item.genre)) {
+            this.arrayGenre.push(item.genre);
+          }
+        });
       });
   },
   methods: {
