@@ -56,6 +56,7 @@ export default {
             this.arrayGenre.push(item.genre);
           }
         });
+        this.arrayGenre.unshift("All");
       });
   },
   methods: {

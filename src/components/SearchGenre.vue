@@ -4,7 +4,6 @@
     id="genre"
     @change="$emit('search', displayGenre($event))"
   >
-    <option value="All">All</option>
     <option v-for="(item, index) in genere" :key="index" :value="item">
       {{ item }}
     </option>
